@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse – NovaMarket</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.14/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url("img/login_fondo_01.jpeg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .register-box {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 2.5rem;
+      width: 90%;
+      max-width: 430px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+      animation: fadeUp 0.8s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo img {
+      width: 170px;
+      height: 100px;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-weight: 700;
+      color: #1F2937;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #6B7280;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      margin-bottom: 12px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    form input:focus {
+      border-color: #6366F1;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
+    }
+
+    .btn {
+      background-color: #4F46E5;
+      color: white;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 5px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #4338CA;
+    }
+
+    .links {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      color: #6B7280;
+    }
+
+    .links a {
+      color: #4F46E5;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <div class="logo">
+      <img src="img/logo_empresa.jpg" alt="Logo NovaMarket">
+    </div>
+
+    <h2>Crear una cuenta</h2>
+    <p>Regístrate para comenzar a usar NovaMarket</p>
+
+    <form action="registrar_usuario.php" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" required>
+      <input type="password" name="clave" placeholder="Contraseña" required>
+      <input type="password" name="confirmar" placeholder="Confirmar contraseña" required>
+      <button type="submit" class="btn">Registrarme</button>
+    </form>
+
+    <div class="links">
+      <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+    </div>
+  </div>
+</body>
+</html>

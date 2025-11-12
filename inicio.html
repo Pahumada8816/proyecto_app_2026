@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultoría Digital NovaMarket</title>
+  <link rel="stylesheet" href="estilos_inicio.css">
+  <style>
+    /* ====== AJUSTES ADICIONALES ====== */
+    .modal-oscuro {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      overflow: auto;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-contenido {
+      background: linear-gradient(160deg, #0a0f1c, #1b2a4a);
+      color: #fff;
+      margin: 6% auto;
+      padding: 30px 40px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      animation: aparecer 0.4s ease;
+    }
+
+    .modal-contenido img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cerrar-modal {
+      float: right;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .cerrar-modal:hover {
+      color: #1abc9c;
+    }
+
+    .boton-azul {
+      background: linear-gradient(90deg, #007bff, #00c6ff);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .boton-azul:hover {
+      background: linear-gradient(90deg, #0056b3, #00aaff);
+      transform: translateY(-2px);
+      box-shadow: 0 0 12px rgba(0,150,255,0.5);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    form input:focus, form textarea:focus {
+      box-shadow: 0 0 8px #1abc9c;
+    }
+
+    label {
+      font-weight: bold;
+      color: #b8c6e0;
+    }
+
+    /* Fondo general de la página */
+    body {
+      background: url('img/inicio_fondo.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      background-attachment: fixed;
+      background-blend-mode: multiply;
+    }
+
+    /* Logo más grande */
+    .logo img {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+    }
+
+    /* Mejor contraste del texto sobre el fondo */
+    .bienvenida h2,
+    .bienvenida p {
+      color: #fff;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .bienvenida {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      margin: 100px 10%;
+      padding: 60px;
+    }
+
+    /* ====== AJUSTE DE TARJETAS ====== */
+    .tarjeta h3 {
+      color: #1b1b1b; /* Título oscuro */
+      font-weight: bold;
+    }
+
+    .tarjeta p {
+      color: #2e2e2e; /* Texto más oscuro para mejor lectura */
+    }
+  </style>
+</head>
+<body>
+  <!-- ====== ENCABEZADO ====== -->
+  <header>
+    <div class="container-header">
+      <div class="logo">
+        <img src="img/logo_empresa.jpg" alt="Logo Consultoría Digital">
+        <h1>Consultoría Digital NovaMarket</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="inicio.html" class="activo">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="inicio.html#servicios">Servicios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== SECCIÓN INICIO ====== -->
+  <section id="inicio" class="bienvenida">
+    <h2>Bienvenido a tu portal de consultoría digital</h2>
+    <p>Transformamos tu negocio con soluciones digitales, diseño moderno y tecnología avanzada.</p>
+  </section>
+
+  <!-- ====== SERVICIOS ====== -->
+  <section id="servicios" class="servicios">
+    <div class="tarjeta">
+      <h3>Creación y diseño de páginas web</h3>
+      <p>Desarrollamos sitios web modernos, seguros y personalizados para tu empresa.</p>
+      <button>Ver más</button>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Desarrollo de aplicaciones móviles</h3>
+      <p>Creamos apps intuitivas y eficientes para Android e iOS, a medida de tus necesidades.</p>
+      <button>Ver más</button>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Servicios de seguridad y ubicación empresarial</h3>
+      <p>Protege tus activos y mejora la gestión logística con nuestros sistemas integrados.</p>
+      <button>Ver más</button>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Recursos Humanos digitales para PYMES</h3>
+      <p>Optimiza la gestión de tu equipo con herramientas digitales adaptadas a tu negocio.</p>
+      <button>Ver más</button>
+    </div>
+  </section>
+
+  <!-- ====== MODALES ====== -->
+  <div id="fondo_web" class="modal-oscuro">
+    <div class="modal-contenido">
+      <button class="cerrar-modal" onclick="cerrarModal('fondo_web')">&times;</button>
+      <img src="img/web_service.jpg" alt="Diseño Web Profesional">
+      <h2>Creación y Diseño de Páginas Web</h2>
+      <p>Ofrecemos sitios web desarrollados con las tecnologías más modernas como <strong>HTML5, CSS3, JavaScript, React y PHP</strong>. Nuestras páginas están optimizadas para SEO, adaptadas a todos los dispositivos y diseñadas para transmitir confianza y profesionalismo. Integramos formularios inteligentes, animaciones ligeras y paneles de administración fáciles de usar.</p>
+      <button class="boton-azul" onclick="abrirFormulario()">Solicitar Servicio</button>
+    </div>
+  </div>
+
+  <div id="fondo_apps" class="modal-oscuro">
+    <div class="modal-contenido">
+      <button class="cerrar-modal" onclick="cerrarModal('fondo_apps')">&times;</button>
+      <img src="img/apps_service.jpg" alt="Desarrollo de Aplicaciones">
+      <h2>Desarrollo de Aplicaciones Móviles</h2>
+      <p>Diseñamos y desarrollamos aplicaciones móviles nativas y multiplataforma usando <strong>Flutter, Kotlin, Swift y React Native</strong>. Nos enfocamos en crear soluciones fluidas, seguras y escalables.</p>
+      <button class="boton-azul" onclick="abrirFormulario()">Solicitar Servicio</button>
+    </div>
+  </div>
+
+  <div id="fondo_seguridad" class="modal-oscuro">
+    <div class="modal-contenido">
+      <button class="cerrar-modal" onclick="cerrarModal('fondo_seguridad')">&times;</button>
+      <img src="img/seguridad_service.jpg" alt="Seguridad Empresarial">
+      <h2>Seguridad y Ubicación Empresarial</h2>
+      <p>Implementamos sistemas integrales de <strong>monitoreo, control de acceso, rastreo GPS y ciberseguridad</strong>. Trabajamos con cámaras IP y plataformas de vigilancia en tiempo real.</p>
+      <button class="boton-azul" onclick="abrirFormulario()">Solicitar Servicio</button>
+    </div>
+  </div>
+
+  <div id="fondo_rrhh" class="modal-oscuro">
+    <div class="modal-contenido">
+      <button class="cerrar-modal" onclick="cerrarModal('fondo_rrhh')">&times;</button>
+      <img src="img/rrhh_service.jpg" alt="Recursos Humanos Digitales">
+      <h2>Recursos Humanos Digitales</h2>
+      <p>Transformamos la gestión del talento mediante sistemas digitales de control de asistencia, evaluación y selección automatizada basados en <strong>Python y SQL</strong>.</p>
+      <button class="boton-azul" onclick="abrirFormulario()">Solicitar Servicio</button>
+    </div>
+  </div>
+
+  <!-- ====== FORMULARIO ====== -->
+  <div id="modalFormulario" class="modal-oscuro">
+    <div class="modal-contenido">
+      <button class="cerrar-modal" onclick="cerrarModal('modalFormulario')">&times;</button>
+      <h2>Solicitud de Servicio</h2>
+      <form id="formSolicitud">
+        <label>Nombre:</label>
+        <input type="text" required>
+        <label>RUT:</label>
+        <input type="text" required>
+        <label>Correo:</label>
+        <input type="email" required>
+        <label>Teléfono:</label>
+        <input type="tel" required>
+        <label>Descripción del servicio:</label>
+        <textarea rows="4" required></textarea>
+        <label>Fecha y hora (Lunes a Viernes, 10:00 a 17:30):</label>
+        <input type="datetime-local" required>
+        <button type="submit" class="boton-azul">Enviar Solicitud</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====== SCRIPT ====== -->
+  <script>
+    function abrirModal(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+    function cerrarModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+    function abrirFormulario() {
+      ['fondo_web','fondo_apps','fondo_seguridad','fondo_rrhh'].forEach(cerrarModal);
+      abrirModal('modalFormulario');
+    }
+    document.querySelectorAll('.tarjeta button').forEach((btn, i) => {
+      const ids = ['fondo_web', 'fondo_apps', 'fondo_seguridad', 'fondo_rrhh'];
+      btn.addEventListener('click', () => abrirModal(ids[i]));
+    });
+    window.onclick = function(e) {
+      document.querySelectorAll('.modal-oscuro').forEach(modal => {
+        if (e.target === modal) modal.style.display = 'none';
+      });
+    };
+    document.getElementById("formSolicitud").addEventListener("submit", function(e) {
+      const fechaInput = this.querySelector('input[type="datetime-local"]').value;
+      if (!fechaInput) return;
+      const fecha = new Date(fechaInput);
+      const dia = fecha.getDay();
+      const hora = fecha.getHours();
+      const minutos = fecha.getMinutes();
+      const dentroDeHorario =
+        dia >= 1 && dia <= 5 &&
+        (hora > 10 || (hora === 10 && minutos >= 0)) &&
+        (hora < 17 || (hora === 17 && minutos <= 30));
+      if (!dentroDeHorario) {
+        e.preventDefault();
+        alert("⚠️ Solo puedes agendar una cita entre lunes y viernes de 10:00 a 17:30 horas.");
+        return false;
+      }
+      alert("✅ Tu solicitud ha sido enviada correctamente. Pronto un ejecutivo te contactará.");
+      cerrarModal('modalFormulario');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión – NovaMarket</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.14/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url("img/login_fondo_01.jpeg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 2.5rem;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+      animation: fadeUp 0.8s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo img {
+      width: 170px;
+      height: 100px;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-weight: 700;
+      color: #1F2937;
+      margin-bottom: 0.5rem;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      margin-bottom: 12px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    form input:focus {
+      border-color: #6366F1;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
+    }
+
+    .btn {
+      background-color: #4F46E5;
+      color: white;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 5px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #4338CA;
+    }
+
+    .social-btns img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: 0.2s;
+      border-radius: 50%;
+    }
+
+    .social-btns img:hover {
+      transform: scale(1.1);
+    }
+
+    .links {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      color: #6B7280;
+    }
+
+    .links a {
+      color: #4F46E5;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="logo">
+      <img src="img/logo_empresa.jpg" alt=" NovaMarket">
+    </div>
+
+    <h2>Iniciar sesión</h2>
+    <p class="text-gray-500 mb-3">Accede a tu cuenta para continuar</p>
+
+    <form action="verificar_login.php" method="POST">
+      <input type="email" name="correo" placeholder="Correo electrónico" required>
+      <input type="password" name="clave" placeholder="Contraseña" required>
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+
+    <div class="social-btns flex justify-center space-x-4 mt-4">
+      <img src="img/google.jpg" alt="Google">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook">
+      <img src="img/x.jpg" alt="Twitter">
+    </div>
+
+    <div class="links">
+      <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+    </div>
+  </div>
+</body>
+</html>
