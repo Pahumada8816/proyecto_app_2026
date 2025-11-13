@@ -1,4 +1,12 @@
 <?php
+// 🔹 Conexión directa (por compatibilidad)
+$conexion = new mysqli("localhost", "root", "", "novamarket");
+
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+// 🔹 Código original con include y validaciones
 include("conexion.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // Insertar nuevo usuario
-  $stmt = $conexion->prepare("INSERT INTO usuarios (nombre, correo, clave) VALUES (?, ?, ?)");
+  $stmt = $conexion->prepare("INSERT INTO usuarios (nombre, correo, password) VALUES (?, ?, ?)");
   $stmt->bind_param("sss", $nombre, $correo, $clave_hash);
 
   if ($stmt->execute()) {
@@ -40,3 +48,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $conexion->close();
 }
 ?>
+
