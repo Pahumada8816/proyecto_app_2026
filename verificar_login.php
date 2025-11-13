@@ -1,11 +1,19 @@
 <?php
+// 🔹 Conexión directa (por compatibilidad)
+$conexion = new mysqli("localhost", "root", "", "novamarket");
+
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+// 🔹 Código original con include y validaciones
 include("conexion.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $correo = trim($_POST["correo"]);
   $clave = trim($_POST["clave"]);
 
-  $stmt = $conexion->prepare("SELECT id, nombre, clave FROM usuarios WHERE correo = ?");
+  $stmt = $conexion->prepare("SELECT id, nombre, password FROM usuarios WHERE correo = ?");
   $stmt->bind_param("s", $correo);
   $stmt->execute();
   $resultado = $stmt->get_result();
@@ -13,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($resultado->num_rows > 0) {
     $usuario = $resultado->fetch_assoc();
 
-    if (password_verify($clave, $usuario["clave"])) {
+    if (password_verify($clave, $usuario["password"])) {
       session_start();
       $_SESSION["usuario_id"] = $usuario["id"];
       $_SESSION["usuario_nombre"] = $usuario["nombre"];
@@ -30,3 +38,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $conexion->close();
 }
 ?>
+
